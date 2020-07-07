@@ -7,4 +7,5 @@ My second attemot to complete a free tutorial by Paul Hudson. https://www.hackin
 * [Day 3](./Introduction/Day3) :  Operators and conditions
 * [Day 4](./Introduction/Day4) : Loops
 * [Day 5](./Introduction/Day5) : Functions
-* [Day 7](./Introduction/Day6) : Closures part one.
+* [Day 6](./Introduction/Day6) : Closures part one.
+* [Day 7](./Introduction/Day7) : Closures part two.
