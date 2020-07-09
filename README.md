@@ -1,5 +1,5 @@
 ## 100DaysOfSwiftUI
-My second attemot to complete a free tutorial by Paul Hudson. https://www.hackingwithswift.com/100/swiftui
+My second attempt to complete a free tutorial by Paul Hudson. https://www.hackingwithswift.com/100/swiftui
 
 ## Days
 * [Day 1](./Introduction/Day1) :  Simplye types
@@ -10,3 +10,4 @@ My second attemot to complete a free tutorial by Paul Hudson. https://www.hackin
 * [Day 6](./Introduction/Day6) : Closures part one
 * [Day 7](./Introduction/Day7) : Closures part two
 * [Day 8](./Introduction/Day8) : Structs part one
+* [Day 9](./Introduction/Day9) : Structs part two
