@@ -11,3 +11,4 @@ My second attempt to complete a free tutorial by Paul Hudson. https://www.hackin
 * [Day 7](./Introduction/Day7) : Closures part two
 * [Day 8](./Introduction/Day8) : Structs part one
 * [Day 9](./Introduction/Day9) : Structs part two
+* [Day 10](./Introduction/Day10) : Classes
