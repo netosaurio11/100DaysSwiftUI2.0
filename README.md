@@ -13,3 +13,4 @@ My second attempt to complete a free tutorial by Paul Hudson. https://www.hackin
 * [Day 9](./Introduction/Day9) : Structs part two
 * [Day 10](./Introduction/Day10) : Classes
 * [Day 11](./Introduction/Day11) : Protocols, extensions and protocol extensions.
+* [Day 12](./Introduction/Day12) : Optionals, unwrapping and typecasting.
