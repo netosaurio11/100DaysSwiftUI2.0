@@ -17,3 +17,4 @@ My second attempt to complete a free tutorial by Paul Hudson. https://www.hackin
 ### Consolidation I
 * [Day 13](./Introduction/Day13) : Swift review, day one.
 * [Day 14](./Introduction/Day14) : Swift review, day two.
+* [Day 15](./Introduction/Day14) : Swift review, day three.
