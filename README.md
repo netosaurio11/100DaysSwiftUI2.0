@@ -19,4 +19,6 @@ My second attempt to complete a free tutorial by Paul Hudson. https://www.hackin
 * [Day 14](./Introduction/Day14) : Swift review, day two.
 * [Day 15](./Introduction/Day14) : Swift review, day three.
 ### Days 16-24: Starting SwiftUI
-* [Day 16](./Starting-SwiftUI/Project1) : Project 1, part one
+* [Day 16](./Starting-SwiftUI/Project1) : Project 1, part one.
+* [Day 17](./Starting-SwiftUI/Project1) : Project 1, part two.
+* [Day 18](./Starting-SwiftUI/Project1) : Project 1, part three. **(Wrap-up day)**
