@@ -10,8 +10,15 @@ import SwiftUI
 struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
+    // Var used for challenge point #3 message for tell them their mistake
+    @State private var scoreMessage = ""
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
+    // var used for challenge point #1 & #2
+    @State private var userScore = 0
+    
+    // Sucess messages
+    private let sucessMessages: [String] = ["Great work!", "Well done!", "Wow! Your Knowledge is awesome."]
 
     var body: some View {
         ZStack {
@@ -39,24 +46,44 @@ struct ContentView: View {
                             .shadow(color: .black, radius: 2)
                     }
                 }
+                
+                Text("Your score: \(userScore)")
+                    .foregroundColor(.white)
+                    .fontWeight(.black)
                 Spacer()
             }
         }
         .alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text("Your score is ???"), dismissButton: .default(Text("Continue")) {
+            let restarButton: Alert.Button = .default(Text("Restart")) {
+                self.restartGame()
+            }
+            let continueButton: Alert.Button = .default(Text("Continue")) {
                 self.askQuestion()
-            })
+            }
+            return Alert(title: Text(scoreTitle), message: Text(scoreMessage), primaryButton: restarButton, secondaryButton: continueButton)
         }
     }
     
     func flagTapped(_ number: Int) {
-        scoreTitle = number == correctAnswer ? "Correct" : "Wrong"
+        if number == correctAnswer {
+            scoreTitle = "Correct!"
+            userScore += 1
+            scoreMessage = sucessMessages.randomElement() ?? ""
+        } else {
+            scoreTitle = "Wrong 🤡"
+            scoreMessage = "Thats the flag of \(countries[number])"
+        }
         showingScore = true
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+    
+    func restartGame() {
+        askQuestion()
+        userScore = 0
     }
 }
 
