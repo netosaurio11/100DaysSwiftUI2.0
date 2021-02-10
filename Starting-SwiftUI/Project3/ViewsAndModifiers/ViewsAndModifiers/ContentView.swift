@@ -84,6 +84,21 @@ struct GridStack<Content: View>: View {
     }
 }
 
+// MARK: Day 24. Challenge Day
+struct LargeBlueTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+    }
+}
+
+extension View {
+    func largeBlueTitle() -> some View {
+        self.modifier(LargeBlueTitle())
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         GridStack(rows: 4, columns: 4) { row, col in

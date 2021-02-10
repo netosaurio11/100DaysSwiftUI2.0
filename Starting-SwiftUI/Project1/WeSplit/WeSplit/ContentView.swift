@@ -24,6 +24,10 @@ struct ContentView: View {
         return amountPerPerson
     }
     
+    var colorTextCondition: Bool {
+        return (!checkAmount.isEmpty && tipPercentage == 4)
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -54,6 +58,8 @@ struct ContentView: View {
                 // Total amount
                 Section(header: Text("Total")) {
                     Text("$\(getGrandTotalAmount(), specifier: "%.2f")") // Total without dividing by the number of people.
+                        // Day 24. Challenge Day
+                        .foregroundColor(colorTextCondition ? .red : .none)
                 }
             }
         .navigationBarTitle("WeSplit")
