@@ -23,4 +23,26 @@ enum OptionGame: String {
             return "✌🏼"
         }
     }
+    
+    var winningOption: OptionGame {
+        switch self {
+        case .rock:
+            return .paper
+        case .paper:
+            return .scissors
+        case .scissors:
+            return .rock
+        }
+    }
+    
+    var losingOption: OptionGame {
+        switch self {
+        case .rock:
+            return .scissors
+        case .paper:
+            return .rock
+        case .scissors:
+            return .paper
+        }
+    }
 }
