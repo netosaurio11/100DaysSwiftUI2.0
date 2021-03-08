@@ -16,42 +16,51 @@ struct ContentView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var userScore = 0
+    
+    private var colors: [Color] = [.yellow, .white]
 
     var body: some View {
-        VStack(spacing: 30.0) {
-            // VStack to show correct choice
-            VStack {
-                Text("Select a move to \( shouldWin ? "WIN" : "LOSE") againts: ")
-                Text(options[appCurrentChoice].rawValue)
-                    .font(.largeTitle)
-                
-            }
-            
-            HStack(spacing: 20.0) {
-                // Buttons
-                ForEach(0..<options.count) { option in
-                    Button(action: {
-                        optionTapped(option)
-                    }) {
-                        Text(options[option].emoji)
-                            .font(.system(size: 60, weight: .semibold, design: .rounded))
-                            .padding(8)
+        NavigationView {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: colors), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                VStack(spacing: 30.0) {
+                    // VStack to show correct choice
+                    VStack {
+                        Text("Select a move to \( shouldWin ? "WIN" : "LOSE") againts: ")
+                        Text(options[appCurrentChoice].rawValue)
+                            .font(.largeTitle)
+                        
+                    }
+                    
+                    HStack(spacing: 20.0) {
+                        // Buttons
+                        ForEach(0..<options.count) { option in
+                            Button(action: {
+                                optionTapped(option)
+                            }) {
+                                Text(options[option].emoji)
+                                    .font(.system(size: 60, weight: .semibold, design: .rounded))
+                                    .padding(8)
+                            }
+                        }
+                    }
+                    VStack {
+                        Text("Your Score: \(userScore)")
+                        Button("Restart") {
+                            self.restartGame()
+                        }
                     }
                 }
-            }
-            VStack {
-                Text("Your Score: \(userScore)")
-                Button("Restart") {
-                    self.restartGame()
+                .alert(isPresented: $showingAnswer) {
+                    let okButton = Alert.Button.default(Text("Ok")) {
+                        self.askForNewMatch()
+                    }
+                    
+                    return Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: okButton)
                 }
             }
-        }
-        .alert(isPresented: $showingAnswer) {
-            let okButton = Alert.Button.default(Text("Ok")) {
-                self.askForNewMatch()
-            }
-            
-            return Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: okButton)
+            .navigationTitle(Text("RPS Game"))
         }
     }
     
