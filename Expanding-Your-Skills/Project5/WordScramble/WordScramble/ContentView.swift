@@ -11,9 +11,14 @@ struct ContentView: View {
   let people = ["Finn", "Leia", "Luke", "Rey"]
 
   var body: some View {
-    if let fileURL = Bundle.main.url(forResource: "some-file", withExtension: "txt"), let fileContents = try? String(contentsOf: fileURL) {
-      
-    }
+    let input = """
+                a
+                b
+                c
+                """
+    let letters = input.components(separatedBy: "\n")
+    let letter = letters.randomElement()
+    let trimmed = letter?.trimmingCharacters(in: .whitespacesAndNewlines)
   }
 }
 
