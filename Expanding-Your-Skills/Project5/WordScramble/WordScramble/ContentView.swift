@@ -8,27 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-      List {
-          Section(header: Text("Section 1")) {
-              Text("Static row 1")
-              Text("Static row 2")
-          }
+  let people = ["Finn", "Leia", "Luke", "Rey"]
 
-          Section(header: Text("Section 2")) {
-              ForEach(0..<5) {
-                  Text("Dynamic row \($0)")
-              }
-          }
-
-          Section(header: Text("Section 3")) {
-              Text("Static row 3")
-              Text("Static row 4")
-          }
+  var body: some View {
+      List(people, id: \.self) {
+          Text($0)
       }
-      .listStyle(GroupedListStyle())
-
-    }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
