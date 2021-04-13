@@ -28,9 +28,21 @@ struct ContentView: View {
           Image(systemName: "\($0.count).circle")
           Text($0)
         }
+        HStack {
+          Text("Words: \(usedWords.count)")
+          Text("Words score: \(getScoreOfWords())")
+        }
+        Text("Total: \(usedWords.count + getScoreOfWords())")
       }
       .navigationBarTitle(rootWord)
       .onAppear(perform: startGame)
+      .toolbar(content: {
+        ToolbarItem(placement: .navigationBarLeading) {
+          Button("Restart") {
+            self.restartGame()
+          }
+        }
+      })
       .alert(isPresented: $showingError) {
         Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("ok")))
       }
@@ -57,6 +69,11 @@ struct ContentView: View {
     guard isReal(word: answer) else {
         wordError(title: "Word not possible", message: "That isn't a real word.")
         return
+    }
+
+    guard isChallengeCase(word: answer) else {
+      wordError(title: "Word not valid", message: "Shoul have more thant 3 letters of be different than original.")
+      return
     }
 
       usedWords.insert(answer, at: 0)
@@ -93,10 +110,28 @@ struct ContentView: View {
     return missPelledRange.location == NSNotFound
   }
 
+  func isChallengeCase(word: String) -> Bool {
+    // Just words with more than 3 letters are reals
+    // Or if the input word and root word are the same
+    return word.count > 3 && !word.elementsEqual(rootWord)
+  }
+
   func wordError(title: String, message: String) {
       errorTitle = title
       errorMessage = message
       showingError = true
+  }
+
+  func restartGame() {
+    usedWords.removeAll()
+    startGame()
+  }
+
+  func getScoreOfWords() -> Int {
+    let score = usedWords.map { $0.count }
+    return score.reduce(0) { (x, y) in
+      x + y
+    }
   }
 }
 
