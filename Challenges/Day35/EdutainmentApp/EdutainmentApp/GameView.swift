@@ -22,7 +22,7 @@ struct GameView: View {
 
     Text(questions.first?.questionDescription ?? "")
 
-    Button("Press to dismiss") {
+    Button("Return") {
       presentationMode.wrappedValue.dismiss()
     }
     .foregroundColor(.white)
