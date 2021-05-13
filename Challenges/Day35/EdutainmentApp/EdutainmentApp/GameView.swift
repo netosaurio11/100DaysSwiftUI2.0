@@ -10,6 +10,9 @@ import SwiftUI
 struct GameView: View {
   @Environment(\.presentationMode) var presentationMode
 
+  @State private var currentQuestion: Int = 0
+  @State private var finished: Bool = false
+
   private var gameConfiguration: GameGenerator?
   private let questions: [Question]
 
@@ -20,15 +23,52 @@ struct GameView: View {
 
   var body: some View {
 
-    Text(questions.first?.questionDescription ?? "")
+    VStack(spacing: 20) {
 
-    Button("Return") {
-      presentationMode.wrappedValue.dismiss()
+      if finished {
+        // Game Over
+        Text("Great work!")
+          .font(.largeTitle)
+          .transition(.asymmetric(insertion: .scale, removal: .opacity))
+
+        Button("Return") {
+          presentationMode.wrappedValue.dismiss()
+        }
+        .frame(width: 100, height: 50)
+        .foregroundColor(.white)
+        .background(Color.green)
+        .cornerRadius(6)
+        .transition(.asymmetric(insertion: .scale, removal: .opacity))
+
+      } else {
+        Text(questions[currentQuestion].questionDescription)
+
+        // Buttons
+        ForEach(getOptions(with: questions[currentQuestion].answer), id: \.self) { option in
+          Button("\(option)") {
+            self.askNextQuestion()
+          }
+        }
+      }
     }
-    .foregroundColor(.white)
-    .font(.title)
-    .padding()
-    .background(Color.blue)
+  }
+
+  private func getOptions(with answer: Int) -> [Int] {
+    return [Int.random(in: 1...100), Int.random(in: answer/3...100), answer].shuffled()
+  }
+
+  private func askNextQuestion() {
+    guard currentQuestion < questions.count - 1 else {
+      withAnimation {
+        finished = true
+      }
+      return
+    }
+    currentQuestion += 1
+  }
+
+  private func numberTapped(with value: Int) {
+    askNextQuestion()
   }
 }
 

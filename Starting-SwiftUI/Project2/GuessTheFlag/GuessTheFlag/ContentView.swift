@@ -42,7 +42,8 @@ struct ContentView: View {
         }
 
         // Flags
-        ForEach(0..<3) { number in
+        ForEach(0..<3) {
+          number in
           Button(action: {
             self.flagTapped(number)
           }) {
