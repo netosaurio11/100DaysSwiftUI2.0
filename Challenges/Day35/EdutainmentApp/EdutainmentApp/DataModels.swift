@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Question {
   var firstNumber: Int
@@ -90,5 +91,34 @@ struct GameGenerator {
     case .all:
       return questions
     }
+  }
+}
+
+struct OptionButton: View {
+  var number: Int
+  var isCorrect: Bool
+  var delegate: ((Int) -> Void)? = nil
+
+  @State private var animationAmount: CGFloat = 1
+  @State private var answerColor: Color = .clear
+
+  var body: some View {
+    Button("\(number)") {
+      withAnimation(Animation.easeOut(duration: 1)) {
+        animationAmount = 2
+        answerColor = isCorrect ? Color.green : Color.red
+        self.delegate?(self.number)
+      }
+    }
+    .padding(25)
+    .background(Color.purple)
+    .foregroundColor(.white)
+    .clipShape(Circle())
+    .overlay(
+      Circle()
+        .stroke(answerColor)
+        .scaleEffect(animationAmount)
+        .opacity(Double(3 - animationAmount))
+    )
   }
 }

@@ -12,6 +12,7 @@ struct GameView: View {
 
   @State private var currentQuestion: Int = 0
   @State private var finished: Bool = false
+  @State private var scoreAmount: Int = 0
 
   private var gameConfiguration: GameGenerator?
   private let questions: [Question]
@@ -45,10 +46,11 @@ struct GameView: View {
 
         // Buttons
         ForEach(getOptions(with: questions[currentQuestion].answer), id: \.self) { option in
-          Button("\(option)") {
-            self.askNextQuestion()
+          OptionButton(number: option, isCorrect: option == questions[currentQuestion].answer) {
+            self.numberTapped(with: $0)
           }
         }
+        Text("Score: \(scoreAmount)")
       }
     }
   }
@@ -59,15 +61,16 @@ struct GameView: View {
 
   private func askNextQuestion() {
     guard currentQuestion < questions.count - 1 else {
-      withAnimation {
-        finished = true
-      }
+      finished = true
       return
     }
     currentQuestion += 1
   }
 
   private func numberTapped(with value: Int) {
+    if value == questions[currentQuestion].answer {
+      scoreAmount += 1
+    }
     askNextQuestion()
   }
 }
