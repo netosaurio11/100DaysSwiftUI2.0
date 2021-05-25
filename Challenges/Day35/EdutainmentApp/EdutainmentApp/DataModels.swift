@@ -87,7 +87,13 @@ struct GameGenerator {
     case .ten:
       return Array(questions[..<10])
     case .twenty:
-      return Array(questions[..<20])
+      if questions.count >= 20 {
+          return Array(questions[..<20])
+      } else {
+          var repeatedArray = [[Question]](repeating: questions, count: 3).flatMap { $0 }
+          repeatedArray.shuffle()
+          return Array(repeatedArray[..<20])
+      }
     case .all:
       return questions
     }
@@ -99,18 +105,21 @@ struct OptionButton: View {
   var isCorrect: Bool
   var delegate: ((Int) -> Void)? = nil
 
+  let customGreenColor: Color = Color(red: 0, green: 200, blue: 0)
+  let customRedColor: Color = Color(red: 200, green: 0, blue: 0)
+
   @State private var animationAmount: CGFloat = 1
   @State private var answerColor: Color = .clear
 
   var body: some View {
     Button("\(number)") {
-      withAnimation(Animation.easeOut(duration: 1)) {
+      withAnimation(Animation.easeOut(duration: 0.5)) {
         animationAmount = 2
-        answerColor = isCorrect ? Color.green : Color.red
+        answerColor = isCorrect ? customGreenColor : customRedColor
         self.delegate?(self.number)
       }
     }
-    .padding(25)
+    .padding(20)
     .background(Color.purple)
     .foregroundColor(.white)
     .clipShape(Circle())

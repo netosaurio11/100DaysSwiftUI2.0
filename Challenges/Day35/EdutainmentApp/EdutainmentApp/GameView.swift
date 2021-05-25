@@ -23,35 +23,54 @@ struct GameView: View {
   }
 
   var body: some View {
+    ZStack {
+      LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
+        .edgesIgnoringSafeArea(.all)
 
-    VStack(spacing: 20) {
+        if finished {
+          // Game Over
+          VStack(spacing: 20) {
+            Text("Great work!")
+              .font(.largeTitle)
+              .foregroundColor(.white)
+              .transition(.asymmetric(insertion: .scale, removal: .opacity))
 
-      if finished {
-        // Game Over
-        Text("Great work!")
-          .font(.largeTitle)
-          .transition(.asymmetric(insertion: .scale, removal: .opacity))
+            Text("Score: \(scoreAmount) / \(questions.count)")
+              .foregroundColor(.white)
+              .font(.subheadline)
 
-        Button("Return") {
-          presentationMode.wrappedValue.dismiss()
-        }
-        .frame(width: 100, height: 50)
-        .foregroundColor(.white)
-        .background(Color.green)
-        .cornerRadius(6)
-        .transition(.asymmetric(insertion: .scale, removal: .opacity))
+            Button("Return") {
+              presentationMode.wrappedValue.dismiss()
+            }
+            .frame(width: 100, height: 50)
+            .foregroundColor(.white)
+            .background(Color.green)
+            .cornerRadius(6)
+            .transition(.asymmetric(insertion: .scale, removal: .opacity))
+          }
+        } else {
+          VStack(spacing: 30) {
+            Text(questions[currentQuestion].questionDescription)
+              .font(.largeTitle)
+              .foregroundColor(.white)
 
-      } else {
-        Text(questions[currentQuestion].questionDescription)
+            // Buttons
+            ForEach(getOptions(with: questions[currentQuestion].answer), id: \.self) { option in
+              OptionButton(number: option, isCorrect: option == questions[currentQuestion].answer) {
+                self.numberTapped(with: $0)
+              }
+            }
 
-        // Buttons
-        ForEach(getOptions(with: questions[currentQuestion].answer), id: \.self) { option in
-          OptionButton(number: option, isCorrect: option == questions[currentQuestion].answer) {
-            self.numberTapped(with: $0)
+            VStack(spacing: 15) {
+              Text("\(currentQuestion + 1) / \(questions.count)")
+                .font(.headline)
+                .foregroundColor(.white)
+              Text("Score: \(scoreAmount)")
+                .font(.subheadline)
+                .foregroundColor(.white)
+            }
           }
         }
-        Text("Score: \(scoreAmount)")
-      }
     }
   }
 
