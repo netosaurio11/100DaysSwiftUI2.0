@@ -61,7 +61,7 @@ struct GameView: View {
               }
             }
 
-            VStack(spacing: 15) {
+            VStack {
               Text("\(currentQuestion + 1) / \(questions.count)")
                 .font(.headline)
                 .foregroundColor(.white)

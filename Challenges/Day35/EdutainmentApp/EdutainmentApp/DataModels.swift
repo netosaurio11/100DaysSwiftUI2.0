@@ -108,8 +108,12 @@ struct OptionButton: View {
   let customGreenColor: Color = Color(red: 0, green: 200, blue: 0)
   let customRedColor: Color = Color(red: 200, green: 0, blue: 0)
 
-  @State private var animationAmount: CGFloat = 1
+  @State private var animationAmount: CGFloat = 0.01
   @State private var answerColor: Color = .clear
+
+  var customPadding: CGFloat {
+    return number < 10 ? 25 : 20
+  }
 
   var body: some View {
     Button("\(number)") {
@@ -119,7 +123,7 @@ struct OptionButton: View {
         self.delegate?(self.number)
       }
     }
-    .padding(20)
+    .padding(customPadding)
     .background(Color.purple)
     .foregroundColor(.white)
     .clipShape(Circle())
@@ -127,7 +131,7 @@ struct OptionButton: View {
       Circle()
         .stroke(answerColor)
         .scaleEffect(animationAmount)
-        .opacity(Double(3 - animationAmount))
+        .opacity(Double(2 - animationAmount))
     )
   }
 }
