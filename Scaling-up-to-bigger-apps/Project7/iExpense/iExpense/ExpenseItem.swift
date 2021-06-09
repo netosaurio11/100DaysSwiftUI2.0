@@ -6,12 +6,25 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct ExpenseItem: Identifiable, Codable {
   let id: UUID = UUID()
   let name: String
   let type: String
   let amount: Int
+
+  var color: Color {
+    switch amount {
+    case 0 ... 10:
+      return .purple
+    case 11 ... 100:
+      return .orange
+    default:
+      return .red
+    }
+
+  }
 }
 
 class Expenses: ObservableObject {

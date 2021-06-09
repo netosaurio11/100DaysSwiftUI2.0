@@ -13,6 +13,7 @@ struct AddView: View {
   @State private var name = ""
   @State private var type = "Personal"
   @State private var amount = ""
+  @State private var showingAlert = false
 
   @Environment(\.presentationMode) var presentationMode
 
@@ -36,8 +37,13 @@ struct AddView: View {
           let item = ExpenseItem(name: self.name, type: self.type, amount: actualAmount)
           self.expenses.items.append(item)
           self.presentationMode.wrappedValue.dismiss()
+        } else {
+          showingAlert.toggle()
         }
       }))
+    }
+    .alert(isPresented: $showingAlert) { () -> Alert in
+      Alert(title: Text("Error"), message: Text("Enter only numerical amounts"), dismissButton: .default(Text("Ok")))
     }
   }
 }
