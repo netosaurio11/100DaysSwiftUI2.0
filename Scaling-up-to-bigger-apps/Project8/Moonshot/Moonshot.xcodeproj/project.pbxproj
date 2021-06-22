@@ -17,6 +17,7 @@
 		4287C203267AEAA60064CBF5 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C202267AEAA60064CBF5 /* Bundle-Decodable.swift */; };
 		4287C206267AEF260064CBF5 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C205267AEF260064CBF5 /* Mission.swift */; };
 		4287C20D2681751A0064CBF5 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C20C2681751A0064CBF5 /* MissionView.swift */; };
+		4287C210268177690064CBF5 /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287C20F268177690064CBF5 /* CrewMember.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4287C202267AEAA60064CBF5 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		4287C205267AEF260064CBF5 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		4287C20C2681751A0064CBF5 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		4287C20F268177690064CBF5 /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +69,12 @@
 				4287C209267AEF700064CBF5 /* Resources */,
 				4287C208267AEF570064CBF5 /* DataModels */,
 				4287C1E626798F310064CBF5 /* MoonshotApp.swift */,
+				4287C20C2681751A0064CBF5 /* MissionView.swift */,
 				4287C1E826798F310064CBF5 /* ContentView.swift */,
 				4287C202267AEAA60064CBF5 /* Bundle-Decodable.swift */,
 				4287C1EA26798F370064CBF5 /* Assets.xcassets */,
 				4287C1EF26798F370064CBF5 /* Info.plist */,
 				4287C1EC26798F370064CBF5 /* Preview Content */,
-				4287C20C2681751A0064CBF5 /* MissionView.swift */,
 			);
 			path = Moonshot;
 			sourceTree = "<group>";
@@ -90,6 +92,7 @@
 			children = (
 				4287C205267AEF260064CBF5 /* Mission.swift */,
 				4287C1FF267AEA450064CBF5 /* Astronaut.swift */,
+				4287C20F268177690064CBF5 /* CrewMember.swift */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				4287C1E926798F310064CBF5 /* ContentView.swift in Sources */,
 				4287C1E726798F310064CBF5 /* MoonshotApp.swift in Sources */,
 				4287C206267AEF260064CBF5 /* Mission.swift in Sources */,
+				4287C210268177690064CBF5 /* CrewMember.swift in Sources */,
 				4287C203267AEAA60064CBF5 /* Bundle-Decodable.swift in Sources */,
 				4287C20D2681751A0064CBF5 /* MissionView.swift in Sources */,
 			);
