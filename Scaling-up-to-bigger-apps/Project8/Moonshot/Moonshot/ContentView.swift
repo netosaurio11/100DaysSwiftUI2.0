@@ -30,6 +30,7 @@ struct ContentView: View {
             Text(mission.displayName)
               .font(.headline)
             Text(getTextFor(mission))
+              .fixedSize(horizontal: false, vertical: true)
           }
         }
       }
