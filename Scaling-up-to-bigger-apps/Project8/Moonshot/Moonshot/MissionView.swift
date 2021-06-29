@@ -26,7 +26,6 @@ struct MissionView: View {
   }
 
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     GeometryReader { geometry in
       ScrollView(.vertical) {
         VStack {
@@ -35,6 +34,11 @@ struct MissionView: View {
             .scaledToFit()
             .frame(maxWidth: geometry.size.width * 0.7)
             .padding(.top)
+
+          if let _ = self.mission.launchDate {
+            Text(self.mission.formattedLaunchDate)
+              .font(.title)
+          }
 
           Text(self.mission.description)
             .padding()
