@@ -47,18 +47,34 @@ struct Checkerboard: Shape {
   }
 }
 
+struct Arrow: Shape {
+  var amount: CGFloat
+
+  func path(in rect: CGRect) -> Path {
+    var path = Path()
+
+    path.move(to: CGPoint(x: rect.midX, y: 0))
+    path.addLine(to: CGPoint(x: 0, y: rect.maxY * 1 / 4))
+    path.addLine(to: CGPoint(x: rect.maxX / 3, y: rect.maxY * 1 / 4))
+    path.addLine(to: CGPoint(x: rect.maxX / 3, y: rect.maxY))
+    path.addLine(to: CGPoint(x: rect.maxX * 2 / 3, y: rect.maxY))
+    path.addLine(to: CGPoint(x: rect.maxX * 2 / 3, y: rect.maxY * 1 / 4))
+    path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY * 1 / 4))
+    path.addLine(to: CGPoint(x: rect.midX, y: 0))
+    return path
+  }
+
+
+}
+
 struct ContentView: View {
   @State private var rows = 4
   @State private var columns = 4
 
   var body: some View {
-    Checkerboard(rows: rows, columns: columns)
-      .onTapGesture {
-        withAnimation(.linear(duration: 3)) {
-          self.rows = 8
-          self.columns = 16
-        }
-      }
+    Arrow(amount: 10)
+      .fill(Color.red)
+      .frame(width: 200, height: 300)
   }
 }
 
