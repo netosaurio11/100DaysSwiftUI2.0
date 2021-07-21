@@ -7,74 +7,51 @@
 
 import SwiftUI
 
-struct Checkerboard: Shape {
-  var rows: Int
-  var columns: Int
+struct Arrow: InsettableShape {
+  var lineWidth: CGFloat
+  var insetAmount: CGFloat = 0
 
-  public var animatableData: AnimatablePair<Double, Double> {
-    get {
-      AnimatablePair(Double(rows), Double(columns))
-    }
-
-    set {
-      self.rows = Int(newValue.first)
-      self.columns = Int(newValue.second)
-    }
+  var animatableData: CGFloat{
+    get { lineWidth }
+    set { self.lineWidth = newValue }
   }
 
   func path(in rect: CGRect) -> Path {
     var path = Path()
 
-    // figure out how big each row/column needs to be
-    let rowSize = rect.height / CGFloat(rows)
-    let columnSize = rect.width / CGFloat(columns)
+    path.move(to: CGPoint(x: rect.midX, y: 0 + insetAmount))
+    path.addLine(to: CGPoint(x: 0 + insetAmount, y: rect.maxY / 3))
+    path.addLine(to: CGPoint(x: rect.maxX / 4, y: rect.maxY / 3))
+    path.addLine(to: CGPoint(x: rect.maxX / 4, y: rect.maxY - insetAmount))
+    path.addLine(to: CGPoint(x: rect.maxX * 3 / 4, y: rect.maxY - insetAmount))
+    path.addLine(to: CGPoint(x: rect.maxX * 3 / 4, y: rect.maxY / 3))
+    path.addLine(to: CGPoint(x: rect.maxX - insetAmount, y: rect.maxY / 3))
+    path.addLine(to: CGPoint(x: rect.midX, y: 0 + insetAmount))
 
-    // loop over all rows and columns, making alternating squares colored
-    for row in 0..<rows {
-      for column in 0..<columns {
-        if (row + column).isMultiple(of: 2) {
-          // this square should be colored; add a rectangle here
-          let startX = columnSize * CGFloat(column)
-          let startY = rowSize * CGFloat(row)
+    let strokedPath = path.strokedPath(StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
 
-          let rect = CGRect(x: startX, y: startY, width: columnSize, height: rowSize)
-          path.addRect(rect)
-        }
-      }
-    }
-
-    return path
-  }
-}
-
-struct Arrow: Shape {
-  var amount: CGFloat
-
-  func path(in rect: CGRect) -> Path {
-    var path = Path()
-
-    path.move(to: CGPoint(x: rect.midX, y: 0))
-    path.addLine(to: CGPoint(x: 0, y: rect.maxY * 1 / 4))
-    path.addLine(to: CGPoint(x: rect.maxX / 3, y: rect.maxY * 1 / 4))
-    path.addLine(to: CGPoint(x: rect.maxX / 3, y: rect.maxY))
-    path.addLine(to: CGPoint(x: rect.maxX * 2 / 3, y: rect.maxY))
-    path.addLine(to: CGPoint(x: rect.maxX * 2 / 3, y: rect.maxY * 1 / 4))
-    path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY * 1 / 4))
-    path.addLine(to: CGPoint(x: rect.midX, y: 0))
-    return path
+    return strokedPath
   }
 
+  func inset(by amount: CGFloat) -> some InsettableShape {
+    var arrow = self
+    arrow.insetAmount += amount
+    return arrow
+  }
 
 }
 
 struct ContentView: View {
-  @State private var rows = 4
-  @State private var columns = 4
+  @State private var linewidth: CGFloat = 5
 
   var body: some View {
-    Arrow(amount: 10)
-      .fill(Color.red)
+    Arrow(lineWidth: linewidth)
+      .foregroundColor(.purple)
       .frame(width: 200, height: 300)
+      .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true))
+      .onAppear {
+        self.linewidth = 15
+      }
   }
 }
 
