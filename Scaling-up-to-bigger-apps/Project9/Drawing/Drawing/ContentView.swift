@@ -19,7 +19,7 @@ struct ContentView: View {
           Text("Rectangle")
         }
       }
-      .navigationBarTitle("Day 49. Challenge")
+      .navigationBarTitle("Day 46. Challenge")
     }
   }
 }
