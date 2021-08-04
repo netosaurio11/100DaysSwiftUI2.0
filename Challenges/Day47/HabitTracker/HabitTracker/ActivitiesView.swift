@@ -9,12 +9,24 @@ import SwiftUI
 
 struct ActivitiesView: View {
   @ObservedObject var activities = Activities()
+  @State private var showingAddActivity = false
 
   var body: some View {
     NavigationView {
       List {
         ForEach(activities.items, id: \.id) { activity in
-          Text(activity.title)
+          HStack {
+            Image(systemName: "face.dashed.fill")
+              .font(.largeTitle)
+              .foregroundColor(.purple)
+            Text(activity.title)
+            Spacer()
+            VStack(alignment: .trailing) {
+              Text("Times done")
+                .font(.headline)
+              Text("\(activity.completed)")
+            }
+          }
         }
         .onDelete { self.delete(at: $0)}
         .onMove { self.move(from: $0, to: $1)}
@@ -22,13 +34,15 @@ struct ActivitiesView: View {
       .navigationBarTitle("Habit Tracker", displayMode: .large)
       .navigationBarItems(leading: addButton)
       .toolbar { EditButton() }
+      .sheet(isPresented: $showingAddActivity) {
+        AddActivity(activities: activities)
+      }
     }
   }
 
   private var addButton: some View {
     Button(action: {
-      let activity = Activity(title: "Default", description: "Default")
-      self.activities.items.append(activity)
+      showingAddActivity = true
     }) {
       Image(systemName: "plus")
     }

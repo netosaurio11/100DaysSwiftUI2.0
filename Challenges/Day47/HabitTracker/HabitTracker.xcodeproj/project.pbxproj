@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4209FB4826BA246100E1A067 /* AddActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4209FB4726BA246100E1A067 /* AddActivity.swift */; };
 		422B2BC326B2363F0069DBF0 /* HabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B2BC226B2363F0069DBF0 /* HabitTrackerApp.swift */; };
 		422B2BC526B2363F0069DBF0 /* ActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B2BC426B2363F0069DBF0 /* ActivitiesView.swift */; };
 		422B2BC726B236480069DBF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422B2BC626B236480069DBF0 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4209FB4726BA246100E1A067 /* AddActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivity.swift; sourceTree = "<group>"; };
 		422B2BBF26B2363F0069DBF0 /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		422B2BC226B2363F0069DBF0 /* HabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerApp.swift; sourceTree = "<group>"; };
 		422B2BC426B2363F0069DBF0 /* ActivitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				422B2BD226B2366F0069DBF0 /* Entities */,
 				422B2BC226B2363F0069DBF0 /* HabitTrackerApp.swift */,
 				422B2BC426B2363F0069DBF0 /* ActivitiesView.swift */,
+				4209FB4726BA246100E1A067 /* AddActivity.swift */,
 				422B2BC626B236480069DBF0 /* Assets.xcassets */,
 				422B2BCB26B236480069DBF0 /* Info.plist */,
 				422B2BC826B236480069DBF0 /* Preview Content */,
@@ -154,6 +157,7 @@
 			files = (
 				422B2BD726B2373D0069DBF0 /* Activities.swift in Sources */,
 				422B2BD426B236860069DBF0 /* Activity.swift in Sources */,
+				4209FB4826BA246100E1A067 /* AddActivity.swift in Sources */,
 				422B2BC526B2363F0069DBF0 /* ActivitiesView.swift in Sources */,
 				422B2BC326B2363F0069DBF0 /* HabitTrackerApp.swift in Sources */,
 			);

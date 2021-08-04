@@ -25,8 +25,6 @@ class Activities: ObservableObject {
         return
       }
     }
-
-    self.items = [Activity(title: "Soccer", description: "Every weekend on night")]
   }
 
   func makeDefaultItems() -> [Activity] {
