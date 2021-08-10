@@ -14,17 +14,13 @@ struct ActivitiesView: View {
   var body: some View {
     NavigationView {
       List {
-        ForEach(activities.items, id: \.id) { activity in
-          HStack {
-            Image(systemName: "face.dashed.fill")
-              .font(.largeTitle)
-              .foregroundColor(.purple)
-            Text(activity.title)
-            Spacer()
-            VStack(alignment: .trailing) {
-              Text("Times done")
-                .font(.headline)
-              Text("\(activity.completed)")
+        ForEach(activities.items.indices, id: \.self) { index in
+          NavigationLink(destination: ActivityDetailView(activity: self.$activities.items[index])) {
+            HStack {
+              Image(systemName: "face.dashed.fill")
+                .font(.largeTitle)
+                .foregroundColor(.purple)
+              Text(self.activities.items[index].title)
             }
           }
         }
