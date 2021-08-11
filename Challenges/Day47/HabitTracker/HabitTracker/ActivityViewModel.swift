@@ -1,5 +1,5 @@
 //
-//  Activities.swift
+//  ActivityViewModel.swift
 //  HabitTracker
 //
 //  Created by Ernesto Daniel Mejia Valdiviezo on 28/07/21.
@@ -7,21 +7,21 @@
 
 import UIKit
 
-class Activities: ObservableObject {
-  @Published var items: [Activity] = [] {
+class ActivityViewModel: ObservableObject {
+  @Published var activities: [Activity] = [] {
     didSet {
       let encoder = JSONEncoder()
-      if let encoded = try? encoder.encode(items) {
+      if let encoded = try? encoder.encode(activities) {
         UserDefaults.activities.setValue(encoded, forKey: "user_activities")
       }
     }
   }
 
-  init() {
+  func getActivities() {
     if let items = UserDefaults.activities.data(forKey: "user_activities") {
       let decoder = JSONDecoder()
       if let decoded = try? decoder.decode([Activity].self, from: items) {
-        self.items = decoded.isEmpty ? makeDefaultItems() : decoded
+        self.activities = decoded.isEmpty ? makeDefaultItems() : decoded
         return
       }
     }

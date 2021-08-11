@@ -1,5 +1,5 @@
 //
-//  AddActivity.swift
+//  AddActivityView.swift
 //  HabitTracker
 //
 //  Created by Ernesto Daniel Mejia Valdiviezo on 03/08/21.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct AddActivity: View {
-  @ObservedObject var activities: Activities
+struct AddActivityView: View {
+  @ObservedObject var activities: ActivityViewModel
   @Environment(\.presentationMode) var presentationMode
 
   @State private var title: String = ""
@@ -37,7 +37,7 @@ struct AddActivity: View {
     Button(action: {
       if !title.isEmpty && !description.isEmpty {
         let newActivity: Activity = Activity(title: title, description: description, completed: completed)
-        activities.items.append(newActivity)
+        activities.activities.append(newActivity)
         self.presentationMode.wrappedValue.dismiss()
       } else {
         showingAlert.toggle()
@@ -50,6 +50,6 @@ struct AddActivity: View {
 
 struct AddActivity_Previews: PreviewProvider {
   static var previews: some View {
-    AddActivity(activities: Activities())
+    AddActivityView(activities: ActivityViewModel())
   }
 }

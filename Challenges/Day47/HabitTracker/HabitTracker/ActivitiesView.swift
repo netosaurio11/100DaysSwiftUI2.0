@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ActivitiesView: View {
-  @ObservedObject var activities = Activities()
+  @ObservedObject var viewModel: ActivityViewModel
   @State private var showingAddActivity = false
 
   var body: some View {
     NavigationView {
       List {
-        ForEach(activities.items.indices, id: \.self) { index in
-          NavigationLink(destination: ActivityDetailView(activity: self.$activities.items[index])) {
+        ForEach(viewModel.activities.indices, id: \.self) { index in
+          NavigationLink(destination: ActivityDetailView(activity: self.$viewModel.activities[index])) {
             HStack {
               Image(systemName: "face.dashed.fill")
                 .font(.largeTitle)
                 .foregroundColor(.purple)
-              Text(self.activities.items[index].title)
+              Text(self.viewModel.activities[index].title)
             }
           }
         }
@@ -31,8 +31,11 @@ struct ActivitiesView: View {
       .navigationBarItems(leading: addButton)
       .toolbar { EditButton() }
       .sheet(isPresented: $showingAddActivity) {
-        AddActivity(activities: activities)
+        AddActivityView(activities: viewModel)
       }
+    }
+    .onAppear {
+      viewModel.getActivities()
     }
   }
 
@@ -45,17 +48,17 @@ struct ActivitiesView: View {
   }
 
   private func delete(at offsets: IndexSet) {
-    activities.items.remove(atOffsets: offsets)
+    viewModel.activities.remove(atOffsets: offsets)
   }
 
   private func move(from source: IndexSet, to destination: Int) {
-    activities.items.move(fromOffsets: source, toOffset: destination)
+    viewModel.activities.move(fromOffsets: source, toOffset: destination)
   }
 
 }
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ActivitiesView()
+    ActivitiesView(viewModel: ActivityViewModel())
   }
 }
