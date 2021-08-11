@@ -12,12 +12,13 @@ struct ActivityDetailView: View {
 
   var body: some View {
     Form {
-      Text(activity.title)
-      Text(activity.description)
-      Stepper(value: $activity.completed, in: 0...50, step: 1) {
-        Text("Completion count: \(activity.completed)")
+      Section(header: Text(activity.description)) {
+        Stepper(value: $activity.completed, in: 0...50, step: 1) {
+          Text("Completion count: \(activity.completed)")
+        }
       }
     }
+    .navigationBarTitle(Text(activity.title), displayMode: .inline)
   }
 }
 
