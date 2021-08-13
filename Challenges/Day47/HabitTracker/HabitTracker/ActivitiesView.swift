@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct ActivitiesView: View {
-  @ObservedObject var viewModel: ActivityViewModel
+struct ActivitiesView<ViewModel: ActivityViewModelProtocol>: View {
+
+  @ObservedObject var viewModel: ViewModel
   @State private var showingAddActivity = false
 
   var body: some View {
@@ -59,6 +60,11 @@ struct ActivitiesView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ActivitiesView(viewModel: ActivityViewModel())
+    let localDataSource: ActivityLocalDataSource = ActivityLocalDataSource()
+    let repository: ActivityRepository = ActivityRepository(localDataSource: localDataSource)
+    let setActivity: SetActivityUseCase = SetActivityUseCase(repository: repository)
+    let getActivity: GetActivityUseCase = GetActivityUseCase(repository: repository)
+
+    ActivitiesView(viewModel: ActivityViewModel(getActivitiesUseCase: getActivity, setActivitiesUseCase: setActivity))
   }
 }

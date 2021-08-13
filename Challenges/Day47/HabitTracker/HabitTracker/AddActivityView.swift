@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct AddActivityView: View {
-  @ObservedObject var activities: ActivityViewModel
+struct AddActivityView<ViewModel: ActivityViewModelProtocol>: View {
+  @ObservedObject var activities: ViewModel
   @Environment(\.presentationMode) var presentationMode
 
   @State private var title: String = ""
@@ -36,7 +36,7 @@ struct AddActivityView: View {
   private var saveButton: some View {
     Button(action: {
       if !title.isEmpty && !description.isEmpty {
-        let newActivity: Activity = Activity(title: title, description: description, completed: completed)
+        let newActivity: ActivityDomain.Activity = ActivityDomain.Activity(title: title, description: description, completed: completed)
         activities.activities.append(newActivity)
         self.presentationMode.wrappedValue.dismiss()
       } else {
@@ -50,6 +50,11 @@ struct AddActivityView: View {
 
 struct AddActivity_Previews: PreviewProvider {
   static var previews: some View {
-    AddActivityView(activities: ActivityViewModel())
+    let localDataSource: ActivityLocalDataSource = ActivityLocalDataSource()
+    let repository: ActivityRepository = ActivityRepository(localDataSource: localDataSource)
+    let setActivity: SetActivityUseCase = SetActivityUseCase(repository: repository)
+    let getActivity: GetActivityUseCase = GetActivityUseCase(repository: repository)
+    
+    AddActivityView(activities: ActivityViewModel(getActivitiesUseCase: getActivity, setActivitiesUseCase: setActivity))
   }
 }

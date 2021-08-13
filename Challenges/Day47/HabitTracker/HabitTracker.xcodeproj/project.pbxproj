@@ -15,6 +15,10 @@
 		422B2BD426B236860069DBF0 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B2BD326B236860069DBF0 /* Activity.swift */; };
 		422B2BD726B2373D0069DBF0 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B2BD626B2373D0069DBF0 /* ActivityViewModel.swift */; };
 		4292DD0D26C21609006EB6FB /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292DD0C26C21609006EB6FB /* ActivityDetailView.swift */; };
+		4292DD1726C5FBD6006EB6FB /* ActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292DD1626C5FBD5006EB6FB /* ActivityRepository.swift */; };
+		4292DD1A26C5FC29006EB6FB /* ActivityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292DD1926C5FC29006EB6FB /* ActivityDataSource.swift */; };
+		4292DD1D26C60507006EB6FB /* ActivityUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292DD1C26C60507006EB6FB /* ActivityUseCase.swift */; };
+		4292DD2026C6068E006EB6FB /* ActivityDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292DD1F26C6068E006EB6FB /* ActivityDomain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		422B2BD326B236860069DBF0 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		422B2BD626B2373D0069DBF0 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		4292DD0C26C21609006EB6FB /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
+		4292DD1626C5FBD5006EB6FB /* ActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRepository.swift; sourceTree = "<group>"; };
+		4292DD1926C5FC29006EB6FB /* ActivityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataSource.swift; sourceTree = "<group>"; };
+		4292DD1C26C60507006EB6FB /* ActivityUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityUseCase.swift; sourceTree = "<group>"; };
+		4292DD1F26C6068E006EB6FB /* ActivityDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDomain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +68,8 @@
 		422B2BC126B2363F0069DBF0 /* HabitTracker */ = {
 			isa = PBXGroup;
 			children = (
-				4292DD1026C35A90006EB6FB /* Domain */,
 				422B2BD226B2366F0069DBF0 /* Data */,
+				4292DD1026C35A90006EB6FB /* Domain */,
 				4292DD1126C35A9D006EB6FB /* Presentation */,
 				422B2BC226B2363F0069DBF0 /* HabitTrackerApp.swift */,
 				422B2BC626B236480069DBF0 /* Assets.xcassets */,
@@ -83,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				422B2BD326B236860069DBF0 /* Activity.swift */,
+				4292DD1626C5FBD5006EB6FB /* ActivityRepository.swift */,
+				4292DD1926C5FC29006EB6FB /* ActivityDataSource.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -90,6 +100,8 @@
 		4292DD1026C35A90006EB6FB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				4292DD1C26C60507006EB6FB /* ActivityUseCase.swift */,
+				4292DD1F26C6068E006EB6FB /* ActivityDomain.swift */,
 			);
 			name = Domain;
 			sourceTree = "<group>";
@@ -177,8 +189,12 @@
 				422B2BD726B2373D0069DBF0 /* ActivityViewModel.swift in Sources */,
 				422B2BD426B236860069DBF0 /* Activity.swift in Sources */,
 				4292DD0D26C21609006EB6FB /* ActivityDetailView.swift in Sources */,
+				4292DD1A26C5FC29006EB6FB /* ActivityDataSource.swift in Sources */,
+				4292DD2026C6068E006EB6FB /* ActivityDomain.swift in Sources */,
+				4292DD1D26C60507006EB6FB /* ActivityUseCase.swift in Sources */,
 				4209FB4826BA246100E1A067 /* AddActivityView.swift in Sources */,
 				422B2BC526B2363F0069DBF0 /* ActivitiesView.swift in Sources */,
+				4292DD1726C5FBD6006EB6FB /* ActivityRepository.swift in Sources */,
 				422B2BC326B2363F0069DBF0 /* HabitTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

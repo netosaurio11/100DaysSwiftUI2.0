@@ -14,6 +14,14 @@ struct Activity: Identifiable, Codable {
   var completed: Int = 0
 }
 
+extension Activity{
+  init(from activity: ActivityDomain.Activity) {
+    self.title = activity.title
+    self.description = activity.description
+    self.completed = activity.completed
+  }
+}
+
 extension UserDefaults {
   class var activities: UserDefaults {
     return UserDefaults(suiteName: "user_activities") ?? UserDefaults.standard

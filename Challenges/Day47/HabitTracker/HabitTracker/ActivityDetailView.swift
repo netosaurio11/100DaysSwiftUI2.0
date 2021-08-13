@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActivityDetailView: View {
-  @Binding var activity: Activity
+  @Binding var activity: ActivityDomain.Activity
 
   var body: some View {
     Form {
@@ -24,6 +24,6 @@ struct ActivityDetailView: View {
 
 struct ActivityDetailView_Previews: PreviewProvider {
   static var previews: some View {
-    ActivityDetailView(activity: .constant(Activity(title: "", description: "")))
+    ActivityDetailView(activity: .constant(ActivityDomain.Activity(title: "", description: "")))
   }
 }
