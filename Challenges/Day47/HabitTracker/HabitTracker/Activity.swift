@@ -8,7 +8,7 @@
 import Foundation
 
 struct Activity: Identifiable, Codable {
-  let id = UUID()
+  var id = UUID()
   let title: String
   let description: String
   var completed: Int = 0

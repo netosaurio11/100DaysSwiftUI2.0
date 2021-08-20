@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol ActivityRepositoryProtocol {
-  func getActivities() -> [Activity]
+  func getActivities() -> AnyPublisher<[Activity], Error>
   func setActivities(_ activities: [Activity])
 }
 
@@ -20,7 +21,7 @@ class ActivityRepository: ActivityRepositoryProtocol {
     self.localDataSource = localDataSource
   }
 
-  func getActivities() -> [Activity] {
+  func getActivities() -> AnyPublisher<[Activity], Error> {
     localDataSource.getLocalActivities()
   }
 

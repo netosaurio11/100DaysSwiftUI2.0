@@ -6,21 +6,31 @@
 //
 
 import Foundation
+import Combine
 
 // AcitivityRemoteDataSource should be here
 
+enum ActivityError: LocalizedError {
+  case resourceNotFoud
+}
+
 protocol ActivityLocalDataSourceProtocol {
-  func getLocalActivities() -> [Activity]
+  func getLocalActivities() -> AnyPublisher<[Activity], Error>
   func setLocalActivities(_ activities: [Activity])
 }
 
 class ActivityLocalDataSource: ActivityLocalDataSourceProtocol {
-  func getLocalActivities() -> [Activity] {
-    let items = UserDefaults.activities.data(forKey: "user_activities") ?? Data()
-    let decoder = JSONDecoder()
+  func getLocalActivities() -> AnyPublisher<[Activity], Error> {
+    Future<[Activity], Error> { promise in
+      let items = UserDefaults.activities.data(forKey: "user_activities") ?? Data()
+      let decoder = JSONDecoder()
 
-    guard let decoded = try? decoder.decode([Activity].self, from: items) else { return [] }
-    return decoded
+      if let decoded = try? decoder.decode([Activity].self, from: items) {
+        promise(.success(decoded))
+      } else {
+        promise(.failure(ActivityError.resourceNotFoud))
+      }
+    }.eraseToAnyPublisher()
   }
 
   func setLocalActivities(_ activities: [Activity]) {

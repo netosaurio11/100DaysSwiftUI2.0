@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol GetActivityUseCaseProtocol {
   var repository: ActivityRepositoryProtocol { get set }
-  func execute() -> [ActivityDomain.Activity]
+  func execute() -> AnyPublisher<[ActivityDomain.Activity], Error>
 }
 
 protocol SetActivityUseCaseProtocol {
@@ -20,8 +21,12 @@ protocol SetActivityUseCaseProtocol {
 struct GetActivityUseCase: GetActivityUseCaseProtocol{
   var repository: ActivityRepositoryProtocol
 
-  func execute() -> [ActivityDomain.Activity] {
-    repository.getActivities().map { ActivityDomain.Activity(from: $0) }
+  func execute() -> AnyPublisher<[ActivityDomain.Activity], Error> {
+    repository.getActivities()
+      .tryMap { activities in
+      return activities.map { ActivityDomain.Activity(from: $0) }
+    }
+      .eraseToAnyPublisher()
   }
 }
 

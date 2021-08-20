@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol ActivityViewModelProtocol: ObservableObject {
   var activities: [ActivityDomain.Activity] { get set }
@@ -16,12 +17,14 @@ class ActivityViewModel: ActivityViewModelProtocol {
 
   let getActivitiesUseCase: GetActivityUseCaseProtocol
   let setActivitiesUseCase: SetActivityUseCaseProtocol
+  var cancellables = Set<AnyCancellable>()
 
   @Published var activities: [ActivityDomain.Activity] = [] {
     didSet {
       setActivitiesUseCase.execute(activities)
     }
   }
+  @Published var error: Error?
 
   init(getActivitiesUseCase: GetActivityUseCaseProtocol, setActivitiesUseCase: SetActivityUseCaseProtocol) {
     self.getActivitiesUseCase = getActivitiesUseCase
@@ -29,6 +32,18 @@ class ActivityViewModel: ActivityViewModelProtocol {
   }
 
   func getActivities() {
-    activities = getActivitiesUseCase.execute()
+    getActivitiesUseCase.execute()
+      .receive(on: DispatchQueue.main)
+      .sink(receiveCompletion: { subscriptionCompleted in
+
+        switch subscriptionCompleted {
+        case .finished:
+          break
+        case .failure(let error):
+          self.error = error
+        }
+      }, receiveValue: { (activities) in
+        self.activities = activities
+      }).store(in: &cancellables)
   }
 }
