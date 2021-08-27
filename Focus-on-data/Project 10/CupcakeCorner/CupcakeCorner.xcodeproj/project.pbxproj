@@ -62,10 +62,10 @@
 				4292DD3026D71A2C006EB6FB /* CupcakeCornerApp.swift */,
 				4292DD3226D71A2C006EB6FB /* ContentView.swift */,
 				4292DD4526D99DAB006EB6FB /* AddressView.swift */,
+				4292DD4926D99F09006EB6FB /* CheckoutView.swift */,
 				4292DD3426D71A47006EB6FB /* Assets.xcassets */,
 				4292DD3926D71A47006EB6FB /* Info.plist */,
 				4292DD3626D71A47006EB6FB /* Preview Content */,
-				4292DD4926D99F09006EB6FB /* CheckoutView.swift */,
 			);
 			path = CupcakeCorner;
 			sourceTree = "<group>";
