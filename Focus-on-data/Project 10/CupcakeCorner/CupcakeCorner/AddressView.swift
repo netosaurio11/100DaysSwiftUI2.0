@@ -20,7 +20,7 @@ struct AddressView: View {
       }
 
       Section {
-        NavigationLink(destination: CheckoutView(oder: order)) {
+        NavigationLink(destination: CheckoutView(order: order)) {
           Text("Checkout")
         }
       }
