@@ -18,6 +18,8 @@ struct AddBookView: View {
   @State private var genre = ""
   @State private var review = ""
 
+  @State private var showAlert = false
+
   let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
 
   var body: some View {
@@ -42,20 +44,36 @@ struct AddBookView: View {
         // Section 3
         Section {
           Button("Save") {
-            let newBook = Book(context: self.moc)
-            newBook.title = self.title
-            newBook.author = self.author
-            newBook.rating = Int16(self.rating)
-            newBook.genre = self.genre
-            newBook.review = self.review
-
-            try? self.moc.save()
-            self.presentationMode.wrappedValue.dismiss()
+            validatingData()
           }
         }
       }
       .navigationBarTitle("Add Book")
+      .alert(isPresented: $showAlert) {
+        Alert(title: Text("Error"), message: Text("You should fill all data."), dismissButton: .default(Text("Ok")))
+      }
     }
+  }
+
+  private func validatingData() {
+    let isFormCompleted: Bool = !title.isEmpty && !author.isEmpty && !genre.isEmpty && !review.isEmpty
+    guard isFormCompleted else {
+      showAlert = true
+      return
+    }
+    savingData()
+  }
+
+  private func savingData() {
+    let newBook = Book(context: self.moc)
+    newBook.title = self.title
+    newBook.author = self.author
+    newBook.rating = Int16(self.rating)
+    newBook.genre = self.genre
+    newBook.review = self.review
+
+    try? self.moc.save()
+    self.presentationMode.wrappedValue.dismiss()
   }
 }
 
