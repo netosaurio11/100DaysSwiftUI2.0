@@ -11,6 +11,7 @@
 		42388F0626F983C0000997A8 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42388F0526F983C0000997A8 /* RatingView.swift */; };
 		42388F0A26F987CE000997A8 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42388F0926F987CE000997A8 /* EmojiRatingView.swift */; };
 		42388F0D26FC11D3000997A8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42388F0C26FC11D3000997A8 /* DetailView.swift */; };
+		42388F11270BC973000997A8 /* ostrich-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42388F10270BC953000997A8 /* ostrich-regular.ttf */; };
 		4292DD5A26EAEF55006EB6FB /* BookwormApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292DD5926EAEF55006EB6FB /* BookwormApp.swift */; };
 		4292DD5C26EAEF55006EB6FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292DD5B26EAEF55006EB6FB /* ContentView.swift */; };
 		4292DD5E26EAEF5D006EB6FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4292DD5D26EAEF5D006EB6FB /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		42388F0526F983C0000997A8 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		42388F0926F987CE000997A8 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 		42388F0C26FC11D3000997A8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		42388F10270BC953000997A8 /* ostrich-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ostrich-regular.ttf"; sourceTree = "<group>"; };
 		4292DD5626EAEF55006EB6FB /* Bookworm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookworm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4292DD5926EAEF55006EB6FB /* BookwormApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookwormApp.swift; sourceTree = "<group>"; };
 		4292DD5B26EAEF55006EB6FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		4292DD5826EAEF55006EB6FB /* Bookworm */ = {
 			isa = PBXGroup;
 			children = (
+				42388F10270BC953000997A8 /* ostrich-regular.ttf */,
 				42388F0126F97343000997A8 /* AddBookView.swift */,
 				4292DD5926EAEF55006EB6FB /* BookwormApp.swift */,
 				4292DD5B26EAEF55006EB6FB /* ContentView.swift */,
@@ -146,6 +149,7 @@
 			files = (
 				4292DD6126EAEF5D006EB6FB /* Preview Assets.xcassets in Resources */,
 				4292DD5E26EAEF5D006EB6FB /* Assets.xcassets in Resources */,
+				42388F11270BC973000997A8 /* ostrich-regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

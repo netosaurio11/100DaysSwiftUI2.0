@@ -43,6 +43,15 @@ struct DetailView: View {
           .font(.largeTitle)
 
         Spacer()
+
+        VStack {
+          Text("Added:")
+            .font(.title3)
+            .foregroundColor(.primary)
+          Text(getFormatedDate())
+            .font(.footnote)
+            .foregroundColor(.secondary)
+        }
       }
     }
     .navigationBarTitle(book.title ?? "Unknown Book", displayMode: .inline)
@@ -64,6 +73,13 @@ struct DetailView: View {
     // uncomment this line if you want to make the deletion permanent
     // try? self.moc.save()
     presentationMode.wrappedValue.dismiss()
+  }
+
+  private func getFormatedDate() -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "HH:mm E, d MMM y"
+
+    return formatter.string(from: book.date ?? Date())
   }
 }
 
