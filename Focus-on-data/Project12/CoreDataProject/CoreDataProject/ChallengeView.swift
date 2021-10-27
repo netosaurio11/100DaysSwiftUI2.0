@@ -76,6 +76,18 @@ struct ChallengeView: View {
           jhay.firstName = "Jhay"
           jhay.lastName = "Cortez"
 
+          let taylor = Singer(context: self.moc)
+          taylor.firstName = "Taylor"
+          taylor.lastName = "Swift"
+
+          let ed = Singer(context: self.moc)
+          ed.firstName = "Ed"
+          ed.lastName = "Sheeran"
+
+          let adele = Singer(context: self.moc)
+          adele.firstName = "Adele"
+          adele.lastName = "Adkins"
+
           try? self.moc.save()
         }
       }
