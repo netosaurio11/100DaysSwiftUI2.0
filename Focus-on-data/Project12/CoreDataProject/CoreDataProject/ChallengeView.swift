@@ -13,6 +13,15 @@ enum SortedDescription: String, CaseIterable {
   case lastNameAscending
   case lastNameDescending
 
+  var filterKey: String {
+    switch self {
+    case .firstNameAscending, .firstNameDescending:
+      return "firstName"
+    case .lastNameAscending, .lastNameDescending:
+      return "lastName"
+    }
+  }
+
   var text: String {
     switch self {
     case .firstNameAscending:
@@ -43,22 +52,32 @@ enum SortedDescription: String, CaseIterable {
 struct ChallengeView: View {
   @Environment(\.managedObjectContext) var moc
   @State private var sortedDescription: SortedDescription = .firstNameAscending
-  @State private var lastNameFilter = "A"
+  @State private var letterFilter = "A"
+
+  let lettersFilter: [String] = ["A", "J", "K", "O", "T", "L", "G", "C", "S"]
 
 
   var body: some View {
     VStack {
       Section(header: Text("Filtered list")) {
-        FilteredListView(filterKey: "firstName", filterValue: lastNameFilter, descriptors: sortedDescription.descriptor) { (singer: Singer) in
+        FilteredListView(filterKey: sortedDescription.filterKey, filterValue: letterFilter, descriptors: sortedDescription.descriptor) { (singer: Singer) in
           Text("\(singer.wrappedFirstName) \(singer.wrappedLastName)")
         }
       }
 
       Section(header: Text("Filter configuration")) {
         Form {
+          // 1. Make it accept an array of NSSortDescriptor objects to get used in its fetch request.
           Picker("Sort description", selection: $sortedDescription) {
             ForEach(SortedDescription.allCases, id: \.self) { descriptor in
               Text(descriptor.text)
+            }
+          }
+
+          // 2. Make it accept a string parameter that controls which predicate is applied
+          Picker("Letter filter", selection: $letterFilter) {
+            ForEach(lettersFilter, id: \.self) { letter in
+              Text(letter)
             }
           }
         }
