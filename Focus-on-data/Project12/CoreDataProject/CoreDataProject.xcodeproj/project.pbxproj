@@ -22,6 +22,7 @@
 		42388F5027167EE5000997A8 /* Candy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42388F4C27167EE5000997A8 /* Candy+CoreDataProperties.swift */; };
 		42388F5127167EE5000997A8 /* Country+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42388F4D27167EE5000997A8 /* Country+CoreDataClass.swift */; };
 		42388F5227167EE5000997A8 /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42388F4E27167EE5000997A8 /* Country+CoreDataProperties.swift */; };
+		4287950C2728F1EC007CDDA9 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287950B2728F1EC007CDDA9 /* ChallengeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		42388F4C27167EE5000997A8 /* Candy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Candy+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42388F4D27167EE5000997A8 /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42388F4E27167EE5000997A8 /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4287950B2728F1EC007CDDA9 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				42388F43271674AD000997A8 /* Singer+CoreDataProperties.swift */,
 				42388F39270FCFE2000997A8 /* Movie+CoreDataClass.swift */,
 				42388F3A270FCFE2000997A8 /* Movie+CoreDataProperties.swift */,
+				4287950B2728F1EC007CDDA9 /* ChallengeView.swift */,
 				42388F24270FCC02000997A8 /* CoreDataProjectApp.swift */,
 				42388F26270FCC02000997A8 /* ContentView.swift */,
 				42388F47271675BD000997A8 /* FilteredListView.swift */,
@@ -181,6 +184,7 @@
 				42388F27270FCC02000997A8 /* ContentView.swift in Sources */,
 				42388F31270FCC0A000997A8 /* CoreDataProject.xcdatamodeld in Sources */,
 				42388F3B270FCFE2000997A8 /* Movie+CoreDataClass.swift in Sources */,
+				4287950C2728F1EC007CDDA9 /* ChallengeView.swift in Sources */,
 				42388F45271674AD000997A8 /* Singer+CoreDataProperties.swift in Sources */,
 				42388F3C270FCFE2000997A8 /* Movie+CoreDataProperties.swift in Sources */,
 				42388F25270FCC02000997A8 /* CoreDataProjectApp.swift in Sources */,
