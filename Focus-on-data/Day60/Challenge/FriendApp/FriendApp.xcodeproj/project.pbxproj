@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		4288A83C2743412100D5A265 /* FriendAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288A83B2743412100D5A265 /* FriendAppApp.swift */; };
-		4288A83E2743412100D5A265 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288A83D2743412100D5A265 /* UserView.swift */; };
+		4288A83E2743412100D5A265 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288A83D2743412100D5A265 /* UsersListView.swift */; };
 		4288A8402743412800D5A265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4288A83F2743412800D5A265 /* Assets.xcassets */; };
 		4288A8432743412800D5A265 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4288A8422743412800D5A265 /* Preview Assets.xcassets */; };
 		4288A84D274341E300D5A265 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288A84C274341E300D5A265 /* User.swift */; };
 		4288A8512743425A00D5A265 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288A8502743425A00D5A265 /* Friend.swift */; };
+		42ACC557274C81510006CA8E /* ItemUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACC556274C81510006CA8E /* ItemUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4288A8382743412000D5A265 /* FriendApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4288A83B2743412100D5A265 /* FriendAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAppApp.swift; sourceTree = "<group>"; };
-		4288A83D2743412100D5A265 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		4288A83D2743412100D5A265 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		4288A83F2743412800D5A265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4288A8422743412800D5A265 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4288A8442743412800D5A265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4288A84C274341E300D5A265 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4288A8502743425A00D5A265 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		42ACC556274C81510006CA8E /* ItemUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +58,9 @@
 		4288A83A2743412000D5A265 /* FriendApp */ = {
 			isa = PBXGroup;
 			children = (
+				42ACC554274C81130006CA8E /* View */,
 				4288A84B2743419D00D5A265 /* Models */,
 				4288A83B2743412100D5A265 /* FriendAppApp.swift */,
-				4288A83D2743412100D5A265 /* UserView.swift */,
 				4288A83F2743412800D5A265 /* Assets.xcassets */,
 				4288A8442743412800D5A265 /* Info.plist */,
 				4288A8412743412800D5A265 /* Preview Content */,
@@ -81,6 +83,15 @@
 				4288A8502743425A00D5A265 /* Friend.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		42ACC554274C81130006CA8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4288A83D2743412100D5A265 /* UsersListView.swift */,
+				42ACC556274C81510006CA8E /* ItemUserView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4288A83E2743412100D5A265 /* UserView.swift in Sources */,
+				4288A83E2743412100D5A265 /* UsersListView.swift in Sources */,
 				4288A83C2743412100D5A265 /* FriendAppApp.swift in Sources */,
+				42ACC557274C81510006CA8E /* ItemUserView.swift in Sources */,
 				4288A84D274341E300D5A265 /* User.swift in Sources */,
 				4288A8512743425A00D5A265 /* Friend.swift in Sources */,
 			);

@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct UsersView: View {
+struct UsersListView: View {
   @State private var users: [User] = []
 
   var body: some View {
     NavigationView {
       List(users, id: \.id) { user in
-        Text(user.name)
-          .font(.headline)
+        ItemUserView(name: user.name, age: user.age)
       }
       .navigationBarTitle("Users", displayMode: .large)
     }
@@ -48,6 +47,6 @@ struct UsersView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    UsersView()
+    UsersListView()
   }
 }
