@@ -20,3 +20,19 @@ struct User: Codable {
   let tags: [String]
   let friends: [Friend]
 }
+
+extension User {
+  init() {
+    self.id = ""
+    self.isActive = false
+    self.name = ""
+    self.age = 0
+    self.company = ""
+    self.email = ""
+    self.address = ""
+    self.about = ""
+    self.registered = ""
+    self.tags = []
+    self.friends = []
+  }
+}

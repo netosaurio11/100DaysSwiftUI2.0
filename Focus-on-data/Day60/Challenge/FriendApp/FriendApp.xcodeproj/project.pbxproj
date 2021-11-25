@@ -14,6 +14,7 @@
 		4288A84D274341E300D5A265 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288A84C274341E300D5A265 /* User.swift */; };
 		4288A8512743425A00D5A265 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288A8502743425A00D5A265 /* Friend.swift */; };
 		42ACC557274C81510006CA8E /* ItemUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACC556274C81510006CA8E /* ItemUserView.swift */; };
+		42ACC55D274F245E0006CA8E /* DetailFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACC55C274F245E0006CA8E /* DetailFriendView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4288A84C274341E300D5A265 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4288A8502743425A00D5A265 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		42ACC556274C81510006CA8E /* ItemUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemUserView.swift; sourceTree = "<group>"; };
+		42ACC55C274F245E0006CA8E /* DetailFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFriendView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			children = (
 				4288A83D2743412100D5A265 /* UsersListView.swift */,
 				42ACC556274C81510006CA8E /* ItemUserView.swift */,
+				42ACC55C274F245E0006CA8E /* DetailFriendView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4288A83E2743412100D5A265 /* UsersListView.swift in Sources */,
+				42ACC55D274F245E0006CA8E /* DetailFriendView.swift in Sources */,
 				4288A83C2743412100D5A265 /* FriendAppApp.swift in Sources */,
 				42ACC557274C81510006CA8E /* ItemUserView.swift in Sources */,
 				4288A84D274341E300D5A265 /* User.swift in Sources */,

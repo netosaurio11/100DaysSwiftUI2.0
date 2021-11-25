@@ -13,7 +13,9 @@ struct UsersListView: View {
   var body: some View {
     NavigationView {
       List(users, id: \.id) { user in
-        ItemUserView(name: user.name, age: user.age)
+        NavigationLink(destination: DetailFriendView(user: user)) {
+          ItemUserView(name: user.name, age: user.age)
+        }
       }
       .navigationBarTitle("Users", displayMode: .large)
     }
