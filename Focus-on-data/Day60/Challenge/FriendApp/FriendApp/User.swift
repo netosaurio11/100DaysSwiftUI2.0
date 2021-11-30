@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable {
+struct Person: Codable {
   let id: String
   let isActive: Bool
   let name: String
@@ -21,7 +21,7 @@ struct User: Codable {
   let friends: [Friend]
 }
 
-extension User {
+extension Person {
   init() {
     self.id = ""
     self.isActive = false
@@ -34,5 +34,33 @@ extension User {
     self.registered = ""
     self.tags = []
     self.friends = []
+  }
+}
+
+class User: ObservableObject{
+  @Published var id: String
+  @Published var isActive: Bool
+  @Published var name: String
+  @Published var age: Int
+  @Published var company: String
+  @Published var email: String
+  @Published var address: String
+  @Published var about: String
+  @Published var registered: String
+  @Published var tags: [String]
+  @Published var friends: [Friend]
+
+  init(from user: Person) {
+    self.id = user.id
+    self.isActive = user.isActive
+    self.name = user.name
+    self.age = user.age
+    self.company = user.company
+    self.email = user.email
+    self.address = user.address
+    self.about = user.about
+    self.registered = user.registered
+    self.tags = user.tags
+    self.friends = user.friends
   }
 }

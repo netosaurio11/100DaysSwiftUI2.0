@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailFriendView: View {
-  let user: User
+  @ObservedObject var user: User
 
   var body: some View {
     ScrollView(.vertical) {
@@ -22,31 +22,30 @@ struct DetailFriendView: View {
             .overlay(Circle().stroke(Color.orange, lineWidth: 4))
 
           VStack(alignment: .leading) {
-            Text("Name: \(user.name)")
+            Text("Age:")
               .font(.headline)
-            Text("Age: \(user.age) years old")
+            Text("\(user.age) years old")
               .font(.subheadline)
-            Text("Email: \(user.email)")
+            Text("Company:")
+              .font(.headline)
+            Text(user.company)
               .font(.subheadline)
-          }
-
-//          VStack(alignment: .leading) {
-//            Text(user.company)
-//              .font(.headline)
-//            Text("\(user.registered) years old")
-//              .font(.subheadline)
-//            Text("\(user.address) years old")
-//              .font(.subheadline)
-//          }
-          
+            Text("Email:")
+              .font(.headline)
+            Text(user.email)
+              .font(.subheadline)
+          }   
         }
+        Text(user.about)
+          .padding()
       }
     }
+    .navigationBarTitle(user.name, displayMode: .inline)
   }
 }
 
 struct DetailFriendView_Previews: PreviewProvider {
   static var previews: some View {
-    DetailFriendView(user: User())
+    DetailFriendView(user: User(from: Person()))
   }
 }

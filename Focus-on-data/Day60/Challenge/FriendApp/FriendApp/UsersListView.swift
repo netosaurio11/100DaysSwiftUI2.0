@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct UsersListView: View {
-  @State private var users: [User] = []
+  @State private var users: [Person] = []
 
   var body: some View {
     NavigationView {
       List(users, id: \.id) { user in
-        NavigationLink(destination: DetailFriendView(user: user)) {
+        NavigationLink(destination: DetailFriendView(user: User(from: user))) {
           ItemUserView(name: user.name, age: user.age)
         }
       }
@@ -32,7 +32,7 @@ struct UsersListView: View {
 
     URLSession.shared.dataTask(with: request) { data, response, error in
       if let data = data {
-        if let decodedResponse = try? JSONDecoder().decode([User].self, from: data) {
+        if let decodedResponse = try? JSONDecoder().decode([Person].self, from: data) {
           DispatchQueue.main.async {
             self.users = decodedResponse
           }
