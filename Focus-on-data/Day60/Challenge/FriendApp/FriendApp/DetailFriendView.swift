@@ -34,10 +34,29 @@ struct DetailFriendView: View {
               .font(.headline)
             Text(user.email)
               .font(.subheadline)
-          }   
+          }
         }
         Text(user.about)
           .padding()
+
+        Text("Friends:")
+          .font(.largeTitle)
+
+        ForEach(user.friends, id: \.id) { friend in
+          HStack {
+            Image(systemName: "person.crop.circle.fill")
+              .resizable()
+              .frame(width: 30, height: 30)
+              .clipShape(Circle())
+
+            VStack(alignment: .leading) {
+              Text(friend.name)
+            }
+            Spacer()
+          }
+          .padding(.horizontal)
+        }
+        Spacer(minLength: 25)
       }
     }
     .navigationBarTitle(user.name, displayMode: .inline)

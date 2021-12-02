@@ -63,4 +63,20 @@ class User: ObservableObject{
     self.tags = user.tags
     self.friends = user.friends
   }
+
+  init(from dbo: UserDBO) {
+    self.id = dbo.id ?? "Unknown"
+    self.isActive = dbo.isActive
+    self.name = dbo.name ?? "Unknown"
+    self.age = Int(dbo.age)
+    self.company = dbo.company ?? "Unknown"
+    self.email = dbo.email ?? "Unknown"
+    self.address = dbo.address ?? "Unknown"
+    self.about = dbo.about ?? "Unknown"
+    self.registered = dbo.registered ?? "Unknown"
+
+    // TODO: Find the way to save this
+    self.tags = []
+    self.friends = []
+  }
 }
