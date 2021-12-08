@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct DetailFriendView: View {
-  @ObservedObject var user: User
+  @Environment(\.managedObjectContext) var moc
+  let user: UserDBO
 
   var body: some View {
     ScrollView(.vertical) {
@@ -28,43 +30,58 @@ struct DetailFriendView: View {
               .font(.subheadline)
             Text("Company:")
               .font(.headline)
-            Text(user.company)
+            Text(user.wrappedCompany)
               .font(.subheadline)
             Text("Email:")
               .font(.headline)
-            Text(user.email)
+            Text(user.wrappedEmail)
               .font(.subheadline)
           }
         }
-        Text(user.about)
+        Text(user.wrappedAbout)
           .padding()
 
-        Text("Friends:")
-          .font(.largeTitle)
-
-        ForEach(user.friends, id: \.id) { friend in
-          HStack {
-            Image(systemName: "person.crop.circle.fill")
-              .resizable()
-              .frame(width: 30, height: 30)
-              .clipShape(Circle())
-
-            VStack(alignment: .leading) {
-              Text(friend.name)
-            }
-            Spacer()
-          }
-          .padding(.horizontal)
-        }
-        Spacer(minLength: 25)
+//        Text("Friends:")
+//          .font(.largeTitle)
+//
+//        ForEach(user.friends, id: \.id) { friend in
+//          HStack {
+//            Image(systemName: "person.crop.circle.fill")
+//              .resizable()
+//              .frame(width: 30, height: 30)
+//              .clipShape(Circle())
+//
+//            VStack(alignment: .leading) {
+//              Text(friend.name)
+//            }
+//            Spacer()
+//          }
+//          .padding(.horizontal)
+//        }
+//        Spacer(minLength: 25)
       }
     }
-    .navigationBarTitle(user.name, displayMode: .inline)
+    .navigationBarTitle(user.wrappedName, displayMode: .inline)
   }
 }
 
 struct DetailFriendView_Previews: PreviewProvider {
+  static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+
   static var previews: some View {
-    DetailFriendView(user: User(from: Person()))
+    let user = UserDBO(context: moc)
+
+    user.isActive = false
+    user.name = "default name"
+    user.age = 0
+    user.company = "default company"
+    user.email = "default company"
+    user.address = "default address"
+    user.about = "default about"
+    user.registered = "default registered"
+
+    return NavigationView {
+      DetailFriendView(user: user)
+    }
   }
 }

@@ -15,9 +15,9 @@ struct UsersListView: View {
 
   var body: some View {
     NavigationView {
-      List(users, id: \.id) { user in
-        NavigationLink(destination: DetailFriendView(user: User(from: user))) {
-          ItemUserView(name: user.name, age: user.age)
+      List(usersDBO, id: \.id) { userDBO in
+        NavigationLink(destination: DetailFriendView(user: userDBO)) {
+          ItemUserView(name: userDBO.wrappedName, age: userDBO.wrappedAge)
         }
       }
       .navigationBarTitle("Users", displayMode: .large)
@@ -40,6 +40,7 @@ struct UsersListView: View {
         if let decodedResponse = try? JSONDecoder().decode([Person].self, from: data) {
           DispatchQueue.main.async {
             self.users = decodedResponse
+            saveData()
           }
 
           return

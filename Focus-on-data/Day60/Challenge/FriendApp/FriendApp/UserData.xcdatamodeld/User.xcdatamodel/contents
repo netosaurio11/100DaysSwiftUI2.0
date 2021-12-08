@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="UserDBO" representedClassName="UserDBO" syncable="YES" codeGenerationType="class">
+    <entity name="FriendDBO" representedClassName="FriendDBO" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="UserDBO" representedClassName="UserDBO" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -17,6 +26,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="UserDBO" positionX="-63" positionY="-9" width="128" height="14"/>
+        <element name="UserDBO" positionX="-63" positionY="-9" width="128" height="164"/>
+        <element name="FriendDBO" positionX="-54" positionY="-9" width="128" height="59"/>
     </elements>
 </model>
