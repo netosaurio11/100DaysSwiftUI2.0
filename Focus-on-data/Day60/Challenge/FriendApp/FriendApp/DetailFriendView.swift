@@ -41,24 +41,24 @@ struct DetailFriendView: View {
         Text(user.wrappedAbout)
           .padding()
 
-//        Text("Friends:")
-//          .font(.largeTitle)
-//
-//        ForEach(user.friends, id: \.id) { friend in
-//          HStack {
-//            Image(systemName: "person.crop.circle.fill")
-//              .resizable()
-//              .frame(width: 30, height: 30)
-//              .clipShape(Circle())
-//
-//            VStack(alignment: .leading) {
-//              Text(friend.name)
-//            }
-//            Spacer()
-//          }
-//          .padding(.horizontal)
-//        }
-//        Spacer(minLength: 25)
+        Text("Friends:")
+          .font(.largeTitle)
+
+        ForEach(user.friendsArray, id: \.self) { friend in
+          HStack {
+            Image(systemName: "person.crop.circle.fill")
+              .resizable()
+              .frame(width: 30, height: 30)
+              .clipShape(Circle())
+
+            VStack(alignment: .leading) {
+              Text(friend.wrappedName)
+            }
+            Spacer()
+          }
+          .padding(.horizontal)
+        }
+        Spacer(minLength: 25)
       }
     }
     .navigationBarTitle(user.wrappedName, displayMode: .inline)

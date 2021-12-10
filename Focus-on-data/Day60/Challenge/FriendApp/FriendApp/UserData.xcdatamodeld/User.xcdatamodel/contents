@@ -3,6 +3,7 @@
     <entity name="FriendDBO" representedClassName="FriendDBO" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserDBO" inverseName="friends" inverseEntity="UserDBO"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -19,6 +20,7 @@
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="String"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FriendDBO" inverseName="users" inverseEntity="FriendDBO"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -26,7 +28,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="UserDBO" positionX="-63" positionY="-9" width="128" height="164"/>
-        <element name="FriendDBO" positionX="-54" positionY="-9" width="128" height="59"/>
+        <element name="UserDBO" positionX="-63" positionY="-9" width="128" height="179"/>
+        <element name="FriendDBO" positionX="-54" positionY="-9" width="128" height="74"/>
     </elements>
 </model>

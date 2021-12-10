@@ -17,10 +17,10 @@
 		42ACC55D274F245E0006CA8E /* DetailFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACC55C274F245E0006CA8E /* DetailFriendView.swift */; };
 		42BBF734275853280039C5B0 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF732275853280039C5B0 /* UserData.xcdatamodeld */; };
 		42BBF738275854580039C5B0 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF737275854580039C5B0 /* UserDataManager.swift */; };
-		42BBF73F276053150039C5B0 /* UserDBO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF73B276053150039C5B0 /* UserDBO+CoreDataClass.swift */; };
-		42BBF740276053150039C5B0 /* UserDBO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF73C276053150039C5B0 /* UserDBO+CoreDataProperties.swift */; };
-		42BBF741276053150039C5B0 /* FriendDBO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF73D276053150039C5B0 /* FriendDBO+CoreDataClass.swift */; };
-		42BBF742276053150039C5B0 /* FriendDBO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF73E276053150039C5B0 /* FriendDBO+CoreDataProperties.swift */; };
+		42BBF74A2762EC7A0039C5B0 /* FriendDBO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF7462762EC7A0039C5B0 /* FriendDBO+CoreDataClass.swift */; };
+		42BBF74B2762EC7A0039C5B0 /* FriendDBO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF7472762EC7A0039C5B0 /* FriendDBO+CoreDataProperties.swift */; };
+		42BBF74C2762EC7A0039C5B0 /* UserDBO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF7482762EC7A0039C5B0 /* UserDBO+CoreDataClass.swift */; };
+		42BBF74D2762EC7A0039C5B0 /* UserDBO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BBF7492762EC7A0039C5B0 /* UserDBO+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +36,10 @@
 		42ACC55C274F245E0006CA8E /* DetailFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFriendView.swift; sourceTree = "<group>"; };
 		42BBF733275853280039C5B0 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		42BBF737275854580039C5B0 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
-		42BBF73B276053150039C5B0 /* UserDBO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDBO+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		42BBF73C276053150039C5B0 /* UserDBO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDBO+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		42BBF73D276053150039C5B0 /* FriendDBO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendDBO+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		42BBF73E276053150039C5B0 /* FriendDBO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendDBO+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		42BBF7462762EC7A0039C5B0 /* FriendDBO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FriendDBO+CoreDataClass.swift"; path = "FriendApp/FriendDBO+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		42BBF7472762EC7A0039C5B0 /* FriendDBO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FriendDBO+CoreDataProperties.swift"; path = "FriendApp/FriendDBO+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		42BBF7482762EC7A0039C5B0 /* UserDBO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserDBO+CoreDataClass.swift"; path = "FriendApp/UserDBO+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		42BBF7492762EC7A0039C5B0 /* UserDBO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserDBO+CoreDataProperties.swift"; path = "FriendApp/UserDBO+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +114,10 @@
 		42BBF736275854390039C5B0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				42BBF73B276053150039C5B0 /* UserDBO+CoreDataClass.swift */,
-				42BBF73C276053150039C5B0 /* UserDBO+CoreDataProperties.swift */,
-				42BBF73D276053150039C5B0 /* FriendDBO+CoreDataClass.swift */,
-				42BBF73E276053150039C5B0 /* FriendDBO+CoreDataProperties.swift */,
+				42BBF7462762EC7A0039C5B0 /* FriendDBO+CoreDataClass.swift */,
+				42BBF7472762EC7A0039C5B0 /* FriendDBO+CoreDataProperties.swift */,
+				42BBF7482762EC7A0039C5B0 /* UserDBO+CoreDataClass.swift */,
+				42BBF7492762EC7A0039C5B0 /* UserDBO+CoreDataProperties.swift */,
 				42BBF737275854580039C5B0 /* UserDataManager.swift */,
 			);
 			path = Data;
@@ -192,17 +192,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42BBF73F276053150039C5B0 /* UserDBO+CoreDataClass.swift in Sources */,
 				4288A83E2743412100D5A265 /* UsersListView.swift in Sources */,
 				42ACC55D274F245E0006CA8E /* DetailFriendView.swift in Sources */,
+				42BBF74A2762EC7A0039C5B0 /* FriendDBO+CoreDataClass.swift in Sources */,
 				4288A83C2743412100D5A265 /* FriendAppApp.swift in Sources */,
-				42BBF740276053150039C5B0 /* UserDBO+CoreDataProperties.swift in Sources */,
+				42BBF74D2762EC7A0039C5B0 /* UserDBO+CoreDataProperties.swift in Sources */,
 				42ACC557274C81510006CA8E /* ItemUserView.swift in Sources */,
+				42BBF74B2762EC7A0039C5B0 /* FriendDBO+CoreDataProperties.swift in Sources */,
+				42BBF74C2762EC7A0039C5B0 /* UserDBO+CoreDataClass.swift in Sources */,
 				42BBF738275854580039C5B0 /* UserDataManager.swift in Sources */,
 				42BBF734275853280039C5B0 /* UserData.xcdatamodeld in Sources */,
 				4288A84D274341E300D5A265 /* User.swift in Sources */,
-				42BBF742276053150039C5B0 /* FriendDBO+CoreDataProperties.swift in Sources */,
-				42BBF741276053150039C5B0 /* FriendDBO+CoreDataClass.swift in Sources */,
 				4288A8512743425A00D5A265 /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,7 +40,9 @@ struct UsersListView: View {
         if let decodedResponse = try? JSONDecoder().decode([Person].self, from: data) {
           DispatchQueue.main.async {
             self.users = decodedResponse
-            saveData()
+            saveData() {
+              try? moc.save()
+            }
           }
 
           return
@@ -52,7 +54,7 @@ struct UsersListView: View {
     }.resume()
   }
 
-  func saveData() {
+  func saveData(completion: @escaping () -> Void) {
     for user in users {
       let userDBO = UserDBO(context: moc)
       userDBO.id = user.id
@@ -65,8 +67,16 @@ struct UsersListView: View {
       userDBO.about = user.about
       userDBO.registered = user.registered
 
-      try? moc.save()
+      let friendsDBO: [FriendDBO] = user.friends.map {
+        let friend = FriendDBO(context: moc)
+        friend.id = $0.id
+        friend.name = $0.name
+        return friend
+      }
+
+      userDBO.addToFriends(NSSet(array: friendsDBO))
     }
+    completion()
   }
 }
 

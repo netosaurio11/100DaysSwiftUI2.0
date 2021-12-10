@@ -2,7 +2,7 @@
 //  FriendDBO+CoreDataClass.swift
 //  FriendApp
 //
-//  Created by Ernesto Daniel Mejia Valdiviezo on 07/12/21.
+//  Created by Ernesto Daniel Mejia Valdiviezo on 09/12/21.
 //
 //
 
