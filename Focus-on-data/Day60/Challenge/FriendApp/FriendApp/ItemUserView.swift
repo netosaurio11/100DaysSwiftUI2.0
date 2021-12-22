@@ -10,7 +10,7 @@ import SwiftUI
 struct ItemUserView: View {
 
   let name: String
-  let age: Int
+  let age: Int?
 
   var body: some View {
     HStack {
@@ -21,11 +21,22 @@ struct ItemUserView: View {
       VStack(alignment: .leading) {
         Text(name)
           .font(.headline)
-        Text("\(age) years old")
-          .font(.subheadline)
+
+        if age != nil {
+          Text("\(age!) years old")
+            .font(.subheadline)
+        }
       }
+      Spacer()
       .multilineTextAlignment(.leading)
     }
+  }
+}
+
+extension ItemUserView {
+  init(name: String) {
+    self.name = name
+    self.age = nil
   }
 }
 

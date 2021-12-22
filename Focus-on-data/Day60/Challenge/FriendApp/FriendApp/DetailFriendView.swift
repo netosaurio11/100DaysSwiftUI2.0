@@ -45,23 +45,25 @@ struct DetailFriendView: View {
           .font(.largeTitle)
 
         ForEach(user.friendsArray, id: \.self) { friend in
-          HStack {
-            Image(systemName: "person.crop.circle.fill")
-              .resizable()
-              .frame(width: 30, height: 30)
-              .clipShape(Circle())
-
-            VStack(alignment: .leading) {
-              Text(friend.wrappedName)
-            }
-            Spacer()
+          let userDBO = getUserDBO(from: friend)
+          NavigationLink(destination: DetailFriendView(user: userDBO)) {
+            ItemUserView(name: friend.wrappedName)
           }
-          .padding(.horizontal)
+          .buttonStyle(PlainButtonStyle())
         }
         Spacer(minLength: 25)
       }
     }
     .navigationBarTitle(user.wrappedName, displayMode: .inline)
+  }
+
+  func getUserDBO(from friend: FriendDBO) -> UserDBO {
+    let fetchRequest = NSFetchRequest<UserDBO>(entityName: "UserDBO")
+
+    guard let usersDBO = try? moc.fetch(fetchRequest) else { return UserDBO() }
+
+    return usersDBO.first { $0.id == friend.id } ?? UserDBO()
+
   }
 }
 
